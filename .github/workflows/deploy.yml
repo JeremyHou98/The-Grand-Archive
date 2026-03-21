@@ -1,9 +1,7 @@
 name: Deploy to GitHub Pages
 
 on:
-  # main 分支有推送时触发（包括 fetch-feeds 的自动提交）
-  push:
-    branches: [main]
+  # 自动部署已移至 fetch-feeds workflow，此处仅保留手动触发
   workflow_dispatch:
 
 permissions:

@@ -20,7 +20,6 @@ bun.lock
 
 # Generated
 web/public/data/
-config/fetch-status.json
 
 # Env
 .env
