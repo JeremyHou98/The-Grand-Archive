@@ -22,6 +22,10 @@ bun.lock
 web/public/data/
 config/fetch-status.json
 
+# Env
+.env
+.env.local
+
 # Temp
 *.tmp
 *.bak

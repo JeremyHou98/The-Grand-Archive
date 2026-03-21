@@ -3,7 +3,7 @@ title: >-
   <b>苹果CEO库克：新款Mac吸引了创纪录的首购客户 |</b> 苹果上周推出三款全新Mac机型：MacBook Neo、搭载M5芯片的MacBook
   Air，以及配备M5 Pro与M5 Max芯片的Mac...
 source: 第一财经
-source_url: 'https://da-an-du-ku-rsshub.fly.dev/yicai/brief'
+source_url: '{{RSSHUB_BASE_URL}}/yicai/brief'
 link: 'https://www.yicai.com/brief/103097470.html'
 author: ''
 published: 'Sat, 21 Mar 2026 00:17:00 GMT'

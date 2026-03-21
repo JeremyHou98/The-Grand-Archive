@@ -122,6 +122,12 @@ bun install
 bun run help
 ```
 
+### 配置私有 RSSHub 地址
+
+1. 复制 `.env.example` 为 `.env`，并将 `RSSHUB_BASE_URL` 设置为你自己的 RSSHub 入口（不要提交到仓库）。
+2. 本地开发如需依赖 Docker 版 RSSHub，可保持默认的 `http://localhost:1200`。
+3. 在 `config/sources.yaml` 中，所有走 RSSHub 的路由都写成 `"{{RSSHUB_BASE_URL}}/xxx"`，程序会在运行时替换为真实地址，因此仓库里不会暴露私有 URL。
+
 ## 使用方法
 
 ```bash
@@ -150,7 +156,7 @@ bun run sources
 
 ```yaml
 - name: 订阅名称
-  url: https://example.com/feed.xml
+  url: "{{RSSHUB_BASE_URL}}/example/route"
   category: tech          # 对应 categories.yaml 中的分类 ID
   enabled: true
   fetch_interval: 3600
@@ -158,7 +164,7 @@ bun run sources
   description: 简短描述
 ```
 
-然后运行 `bun run fetch` 即可。
+如果该订阅不依赖 RSSHub，可直接填真实 RSS 地址。配置完毕后运行 `bun run fetch` 即可。
 
 ## Dashboard (SPA)
 

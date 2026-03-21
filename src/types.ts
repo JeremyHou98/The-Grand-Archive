@@ -3,7 +3,7 @@
  */
 
 /** sources.yaml 中的订阅源配置 */
-export interface Source {
+export interface SourceConfig {
   name: string;
   url: string;
   category: string;
@@ -13,8 +13,13 @@ export interface Source {
   description: string;
 }
 
+/** 加载后的订阅源（包含解析后的抓取地址） */
+export interface LoadedSource extends SourceConfig {
+  requestUrl: string;
+}
+
 export interface SourcesConfig {
-  sources: Source[];
+  sources: SourceConfig[];
 }
 
 /** categories.yaml 中的分类定义 */

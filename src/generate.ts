@@ -8,7 +8,7 @@ import { resolve, join } from "path";
 import matter from "gray-matter";
 import { loadSources, loadCategories } from "./config";
 import { getAllFetchStatus, type FetchStatus } from "./fetcher";
-import type { EntryMeta, Source, Category } from "./types";
+import type { EntryMeta, LoadedSource, Category } from "./types";
 
 const ROOT = resolve(import.meta.dir, "..");
 const FEEDS_DIR = resolve(ROOT, "feeds");
@@ -76,7 +76,7 @@ function readAllEntries(): EntryData[] {
   return entries;
 }
 
-function generateStats(entries: EntryData[], sources: Source[], categories: Category[]): StatsData {
+function generateStats(entries: EntryData[], sources: LoadedSource[], categories: Category[]): StatsData {
   const entriesByCategory: Record<string, number> = {};
   const entriesBySource: Record<string, number> = {};
   const entriesByDate: Record<string, number> = {};
@@ -138,9 +138,9 @@ export function generateStaticData() {
 
   // Write sources with fetch status
   const fetchStatus = getAllFetchStatus();
-  const sourcesWithStatus = sources.map((s) => ({
-    ...s,
-    status: fetchStatus[s.url] || null,
+  const sourcesWithStatus = sources.map(({ requestUrl, ...rest }) => ({
+    ...rest,
+    status: fetchStatus[rest.url] || null,
   }));
   writeFileSync(join(OUT_DIR, "sources.json"), JSON.stringify(sourcesWithStatus, null, 2), "utf-8");
 

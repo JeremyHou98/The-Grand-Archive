@@ -7,7 +7,7 @@ import { createHash } from "crypto";
 import { existsSync, mkdirSync, writeFileSync, readFileSync, readdirSync } from "fs";
 import { resolve, join } from "path";
 import matter from "gray-matter";
-import type { Source, EntryMeta } from "./types";
+import type { LoadedSource, EntryMeta } from "./types";
 
 const ROOT = resolve(import.meta.dir, "..");
 const FEEDS_DIR = resolve(ROOT, "feeds");
@@ -41,7 +41,7 @@ function saveFetchStatus(status: Record<string, FetchStatus>) {
 
 /** 更新单个源的状态 */
 export function updateSourceStatus(
-  source: Source,
+  source: LoadedSource,
   result: "success" | "error",
   saved: number,
   skipped: number,
@@ -150,7 +150,9 @@ function htmlToMarkdown(html: string): string {
 }
 
 /** 从单个订阅源抓取并保存条目 */
-export async function fetchSource(source: Source): Promise<{ saved: number; skipped: number; errors: number }> {
+export async function fetchSource(
+  source: LoadedSource
+): Promise<{ saved: number; skipped: number; errors: number }> {
   const categoryDir = resolve(FEEDS_DIR, source.category);
   if (!existsSync(categoryDir)) {
     mkdirSync(categoryDir, { recursive: true });
@@ -158,7 +160,7 @@ export async function fetchSource(source: Source): Promise<{ saved: number; skip
 
   let feed;
   try {
-    feed = await parser.parseURL(source.url);
+    feed = await parser.parseURL(source.requestUrl);
   } catch (err) {
     const errMsg = (err as Error).message;
     console.error(`  ✗ 无法获取 [${source.name}]: ${errMsg}`);
