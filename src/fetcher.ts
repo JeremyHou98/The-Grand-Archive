@@ -67,7 +67,7 @@ export function getAllFetchStatus(): Record<string, FetchStatus> {
 }
 
 const parser = new RSSParser({
-  timeout: 15_000,
+  timeout: 30_000,
   headers: {
     "User-Agent": "DaAnDuKu-RSS-Fetcher/1.0",
   },

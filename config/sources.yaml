@@ -36,7 +36,7 @@ sources:
     description: 半岛电视台全球新闻
 
   - name: AP News
-    url: http://localhost:1200/apnews/topics/apf-topnews
+    url: https://da-an-du-ku-rsshub.fly.dev/apnews/topics/apf-topnews
     category: news
     enabled: true
     fetch_interval: 1800
@@ -52,7 +52,7 @@ sources:
     description: 外交事务杂志，国际关系深度分析
 
   - name: The Economist
-    url: http://localhost:1200/economist/latest
+    url: https://da-an-du-ku-rsshub.fly.dev/economist/latest
     category: news
     enabled: false  # 目标站 403 反爬
     fetch_interval: 7200
@@ -60,7 +60,7 @@ sources:
     description: 经济学人最新文章 (via RSSHub)
 
   - name: FT 中文网
-    url: http://localhost:1200/ft/chinese/hotstoryby7day
+    url: https://da-an-du-ku-rsshub.fly.dev/ft/chinese/hotstoryby7day
     category: news
     enabled: false  # 路由已移除
     fetch_interval: 3600
@@ -68,7 +68,7 @@ sources:
     description: 金融时报中文网热门 (via RSSHub)
 
   - name: 端传媒
-    url: http://localhost:1200/initium/latest
+    url: https://da-an-du-ku-rsshub.fly.dev/initium/latest
     category: news
     enabled: false  # 路由已移除
     fetch_interval: 3600
@@ -85,7 +85,7 @@ sources:
 
   # ── 财经 / 经济 ──────────────────────────────────
   - name: 华尔街见闻
-    url: http://localhost:1200/wallstreetcn/news/global
+    url: https://da-an-du-ku-rsshub.fly.dev/wallstreetcn/news/global
     category: finance
     enabled: true
     fetch_interval: 1800
@@ -93,7 +93,7 @@ sources:
     description: 华尔街见闻全球资讯 (via RSSHub)
 
   - name: 第一财经
-    url: http://localhost:1200/yicai/brief
+    url: https://da-an-du-ku-rsshub.fly.dev/yicai/brief
     category: finance
     enabled: true
     fetch_interval: 1800
@@ -133,7 +133,7 @@ sources:
     description: MarketWatch 头条
 
   - name: 财新网
-    url: http://localhost:1200/caixin/latest
+    url: https://da-an-du-ku-rsshub.fly.dev/caixin/latest
     category: finance
     enabled: true
     fetch_interval: 3600
@@ -142,7 +142,7 @@ sources:
 
   # ── 股市 ─────────────────────────────────────────
   - name: 雪球热帖
-    url: http://localhost:1200/xueqiu/hots
+    url: https://da-an-du-ku-rsshub.fly.dev/xueqiu/hots
     category: finance
     enabled: true
     fetch_interval: 3600
@@ -150,7 +150,7 @@ sources:
     description: 雪球热门讨论 (via RSSHub)
 
   - name: 雪球今日话题
-    url: http://localhost:1200/xueqiu/today
+    url: https://da-an-du-ku-rsshub.fly.dev/xueqiu/today
     category: finance
     enabled: false  # 路由异常，待 RSSHub 修复
     fetch_interval: 3600
@@ -158,7 +158,7 @@ sources:
     description: 雪球今日热门话题 (via RSSHub)
 
   - name: 东方财富股吧热帖
-    url: http://localhost:1200/eastmoney/report/strategyreport
+    url: https://da-an-du-ku-rsshub.fly.dev/eastmoney/report/strategyreport
     category: finance
     enabled: false  # 路由已移除
     fetch_interval: 3600
@@ -166,7 +166,7 @@ sources:
     description: 东方财富策略研报 (via RSSHub)
 
   - name: Investing.com 经济日历
-    url: http://localhost:1200/investing/calendar
+    url: https://da-an-du-ku-rsshub.fly.dev/investing/calendar
     category: finance
     enabled: false  # 路由已移除
     fetch_interval: 3600
@@ -175,7 +175,7 @@ sources:
 
   # ── 推特 / 社交热点 ──────────────────────────────
   - name: X 热门趋势 (全球)
-    url: http://localhost:1200/x/trends
+    url: https://da-an-du-ku-rsshub.fly.dev/x/trends
     category: social
     enabled: false  # X/Twitter 路由在新版 RSSHub 中已移除
     fetch_interval: 1800
@@ -183,7 +183,7 @@ sources:
     description: X/Twitter 全球趋势 (via RSSHub)
 
   - name: 微博热搜
-    url: http://localhost:1200/weibo/search/hot
+    url: https://da-an-du-ku-rsshub.fly.dev/weibo/search/hot
     category: social
     enabled: true
     fetch_interval: 1800
@@ -191,7 +191,7 @@ sources:
     description: 微博实时热搜 (via RSSHub)
 
   - name: 知乎热榜
-    url: http://localhost:1200/zhihu/hot
+    url: https://da-an-du-ku-rsshub.fly.dev/zhihu/hot
     category: social
     enabled: true
     fetch_interval: 3600
@@ -199,7 +199,7 @@ sources:
     description: 知乎热门问题 (via RSSHub)
 
   - name: Elon Musk (@elonmusk)
-    url: http://localhost:1200/x/user/elonmusk
+    url: https://da-an-du-ku-rsshub.fly.dev/x/user/elonmusk
     category: social
     enabled: false  # X/Twitter 路由在新版 RSSHub 中已移除
     fetch_interval: 1800
@@ -215,7 +215,7 @@ sources:
     description: ZeroHedge 财经与地缘分析
 
   - name: 金十数据
-    url: http://localhost:1200/jin10
+    url: https://da-an-du-ku-rsshub.fly.dev/jin10
     category: finance
     enabled: true
     fetch_interval: 900
