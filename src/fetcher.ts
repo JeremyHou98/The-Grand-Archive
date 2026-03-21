@@ -3,6 +3,7 @@
  */
 
 import RSSParser from "rss-parser";
+import TurndownService from "turndown";
 import { createHash } from "crypto";
 import { existsSync, mkdirSync, writeFileSync, readFileSync, readdirSync } from "fs";
 import { resolve, join } from "path";
@@ -103,50 +104,12 @@ function entryExists(categoryDir: string, guid: string, hash: string): boolean {
   return false;
 }
 
-/** 将 HTML 粗略转为 Markdown（简易版） */
+const turndown = new TurndownService({ headingStyle: "atx", codeBlockStyle: "fenced" });
+
+/** 将 HTML 转为 Markdown（使用 turndown 库） */
 function htmlToMarkdown(html: string): string {
   if (!html) return "";
-  return html
-    // 移除 script/style
-    .replace(/<(script|style)[^>]*>[\s\S]*?<\/\1>/gi, "")
-    // 标题
-    .replace(/<h([1-6])[^>]*>(.*?)<\/h\1>/gi, (_, level, text) => `${"#".repeat(+level)} ${text}\n\n`)
-    // 段落
-    .replace(/<p[^>]*>(.*?)<\/p>/gi, "$1\n\n")
-    // 粗体
-    .replace(/<(strong|b)[^>]*>(.*?)<\/\1>/gi, "**$2**")
-    // 斜体
-    .replace(/<(em|i)[^>]*>(.*?)<\/\1>/gi, "*$2*")
-    // 链接
-    .replace(/<a[^>]*href="([^"]*)"[^>]*>(.*?)<\/a>/gi, "[$2]($1)")
-    // 图片
-    .replace(/<img[^>]*src="([^"]*)"[^>]*alt="([^"]*)"[^>]*\/?>/gi, "![$2]($1)")
-    .replace(/<img[^>]*src="([^"]*)"[^>]*\/?>/gi, "![]($1)")
-    // 代码块
-    .replace(/<pre[^>]*><code[^>]*>([\s\S]*?)<\/code><\/pre>/gi, "```\n$1\n```\n\n")
-    // 行内代码
-    .replace(/<code[^>]*>(.*?)<\/code>/gi, "`$1`")
-    // 列表
-    .replace(/<li[^>]*>(.*?)<\/li>/gi, "- $1\n")
-    .replace(/<\/?[uo]l[^>]*>/gi, "\n")
-    // 换行
-    .replace(/<br\s*\/?>/gi, "\n")
-    // 水平线
-    .replace(/<hr\s*\/?>/gi, "\n---\n")
-    // 引用
-    .replace(/<blockquote[^>]*>(.*?)<\/blockquote>/gi, "> $1\n\n")
-    // 移除剩余 HTML 标签
-    .replace(/<[^>]+>/g, "")
-    // 实体解码
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, " ")
-    // 清理多余空行
-    .replace(/\n{3,}/g, "\n\n")
-    .trim();
+  return turndown.turndown(html);
 }
 
 /** 从单个订阅源抓取并保存条目 */
