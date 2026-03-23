@@ -388,9 +388,9 @@ function EntryList({
         {filtered.length === 0 ? (
           <div className="p-8 text-center text-gray-400">暂无条目</div>
         ) : (
-          filtered.map((entry, i) => (
+          filtered.map((entry) => (
             <a
-              key={entry.guid || entry.hash || i}
+              key={`${entry.category}/${entry.filename}`}
               href={entry.link}
               target="_blank"
               rel="noopener noreferrer"
