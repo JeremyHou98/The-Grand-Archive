@@ -11,10 +11,10 @@ permissions:
   pages: write
   id-token: write
 
-# 同时只允许一个部署，跳过排队中的，但不取消正在进行的
+# 同时只允许一个部署，跳过排队中的
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   fetch:
