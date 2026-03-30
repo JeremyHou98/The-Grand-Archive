@@ -19,6 +19,7 @@ concurrency:
 jobs:
   fetch:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     outputs:
       has_changes: ${{ steps.commit.outputs.has_changes }}
     steps:
@@ -65,6 +66,7 @@ jobs:
     needs: fetch
     if: needs.fetch.outputs.has_changes == 'true'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -93,6 +95,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
