@@ -5,7 +5,7 @@
 import RSSParser from "rss-parser";
 import TurndownService from "turndown";
 import { createHash } from "crypto";
-import { existsSync, mkdirSync, writeFileSync, readFileSync, readdirSync } from "fs";
+import { existsSync, mkdirSync, writeFileSync, readFileSync, readdirSync, renameSync, unlinkSync, statSync } from "fs";
 import { resolve, join } from "path";
 import matter from "gray-matter";
 import type { LoadedSource, EntryMeta } from "./types";
@@ -96,7 +96,8 @@ function entryExists(categoryDir: string, guid: string, hash: string): boolean {
     try {
       const content = Bun.file(join(categoryDir, file));
       // 简单检查文件名中是否包含 hash，避免每次都完整解析
-      if (file.includes(hash)) return true;
+      // Skip 0-byte files — they are incomplete writes that should be retried
+      if (file.includes(hash) && statSync(join(categoryDir, file)).size > 0) return true;
     } catch {
       // ignore
     }
@@ -176,11 +177,14 @@ export async function fetchSource(
     const filename = `${datePrefix}_${sanitizeFilename(title)}_${hash}.md`;
     const filepath = join(categoryDir, filename);
 
+    const tmpPath = filepath + ".tmp";
     try {
-      writeFileSync(filepath, fileContent, "utf-8");
+      writeFileSync(tmpPath, fileContent, "utf-8");
+      renameSync(tmpPath, filepath);
       saved++;
     } catch (err) {
       console.error(`  ✗ 写入失败 [${title}]: ${(err as Error).message}`);
+      try { unlinkSync(tmpPath); } catch { /* ignore */ }
     }
   }
 
