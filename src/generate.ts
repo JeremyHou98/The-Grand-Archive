@@ -14,6 +14,29 @@ const ROOT = resolve(import.meta.dir, "..");
 const FEEDS_DIR = resolve(ROOT, "feeds");
 const OUT_DIR = resolve(ROOT, "web/public/data");
 
+const encoder = new TextEncoder();
+
+/**
+ * Truncate a filename so its UTF-8 byte length stays within `maxBytes`.
+ * Preserves the trailing hash suffix (e.g. `_a1b2c3d4e5f6`) for uniqueness.
+ */
+function safeFilename(name: string, maxBytes = 250): string {
+  if (encoder.encode(name).length <= maxBytes) return name;
+
+  // Split off hash suffix like _a1b2c3d4e5f6
+  const hashMatch = name.match(/_([a-f0-9]{12})$/);
+  const hashSuffix = hashMatch ? hashMatch[0] : "";
+  const prefix = hashSuffix ? name.slice(0, -hashSuffix.length) : name;
+  const suffixBytes = encoder.encode(hashSuffix).length;
+  const targetPrefixBytes = maxBytes - suffixBytes;
+
+  let truncated = prefix;
+  while (encoder.encode(truncated).length > targetPrefixBytes) {
+    truncated = truncated.slice(0, -1);
+  }
+  return truncated + hashSuffix;
+}
+
 interface EntryData extends EntryMeta {
   content: string;
   fullContent: string;
@@ -63,7 +86,8 @@ function readAllEntries(): EntryData[] {
         const raw = readFileSync(join(dir, file), "utf-8");
         const { data, content } = matter(raw);
         const trimmed = content.trim();
-        const pathWithoutExt = `feeds/${catId}/${file.replace(/\.md$/, '')}`;
+        // Truncate basename so the resulting .json filename fits within 255 bytes (ext4 limit)
+        const pathWithoutExt = `feeds/${catId}/${safeFilename(file.replace(/\.md$/, ''))}`;
         entries.push({
           ...(data as EntryMeta),
           content: trimmed.slice(0, 500), // 截取摘要
