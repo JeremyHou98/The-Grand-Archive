@@ -1,6 +1,6 @@
 ---
 name: dak_summary
-description: Generate summaries using dak CLI. Covers two sub-skills — (A) Daily Summary: generate a daily digest from feed posts ("generate today's summary", "总结今天的新闻", "生成每日总结", "写今天的摘要"); (B) Topic Summary: generate a topic-focused summary by searching feeds ("总结某个话题", "写一下XX的专题总结", "帮我梳理XX事件"). Uses dak for feed search, writes output as Markdown files.
+description: "Generate summaries using dak CLI. Two sub-skills: (A) Daily Summary for daily news digests, (B) Topic Summary for topic-focused analysis across feeds."
 version: 0.1.0
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: dak
-description: Use the dak package and CLI to search, filter, and access feed entries from 大案牍库. Covers keyword search, multi-dimensional filtering (category, source, tags, author, date range), JSON output, and programmatic API usage. Triggers on "search feeds", "搜索", "查找文章", "dak search", "dak feeds", "用dak查".
+description: "Use the dak CLI to search, filter, and access feed entries. Supports keyword search, multi-dimensional filtering (category, source, tags, author, date range), JSON output, and programmatic API."
 version: 0.1.0
 ---
 
