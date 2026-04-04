@@ -49,13 +49,15 @@ Write output files directly using standard file operations (e.g. `cat > file`, s
 
 ## Shared: Wikilink Format
 
-Always use full path wikilinks with display text:
+Use Markdown reference links with the entry's `link` field (original article URL) and the article title as display text:
 ```
-[[feeds/news/2026-04-02_Iran_war_day34_abc123|Iran war: day 34 summary]]
-[[daily_summary/2026_04_03|2026-04-03 每日总结 § 伊朗战争]]
+[Iran war: day 34 summary](https://www.cnbc.com/2026/04/02/iran-war-day-34.html)
+[2026-04-03 每日总结 § 伊朗战争](daily_summary/2026_04_03.md)
 ```
 
-Use the article's actual title (cleaned up) as display text — not the filename.
+- For feed entries: use `entry.link` (the original article URL) from `dak` JSON output.
+- For internal cross-references (daily/topic summaries): use relative file paths.
+- Use the article's actual title (cleaned up) as display text — not the filename.
 
 ## Shared: Writing Style
 
