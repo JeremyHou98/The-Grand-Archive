@@ -179,3 +179,4 @@ cd pkg && bun run build
 - When results are large, pipe through `jq` for further filtering: `dak search "oil" --json | jq '[.[] | select(.score > 20)]'`
 - Use `--title-only` when you want precision over recall (avoids matching incidental keyword mentions in body text).
 - Combine Chinese and English keywords with separate searches when covering bilingual topics.
+- Each feed entry has a remote URL: `https://littlelittlecloud.github.io/The-Grand-Archive/#/entry/feeds/{category}/{filename}` (without `.md` extension). Use it as a Markdown reference link, e.g. `[title](https://littlelittlecloud.github.io/The-Grand-Archive/#/entry/feeds/finance/2026-03-06_U.S._payrolls_..._7705eefeb6d0)`.
