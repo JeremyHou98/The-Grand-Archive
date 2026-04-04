@@ -1,0 +1,220 @@
+{
+  "main": {
+    "id": "3b4286b850ce0198",
+    "type": "split",
+    "children": [
+      {
+        "id": "7499835fe04fe49e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8034e5b62ddd0287",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "feeds/news/2026-04-02_Iran_war_live__Trump_claims_goals_nearing_completion,_vows_to_'finish_job'_30d2f01d4e76.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-04-02_Iran_war_live__Trump_claims_goals_nearing_completion,_vows_to_'finish_job'_30d2f01d4e76"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "53d1226c34c88d54",
+    "type": "split",
+    "children": [
+      {
+        "id": "dba5023869372ca9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "417908f8ea8c64a9",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "f1f78655986cdb9b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "4ee231d64038949a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "642529b22034ffe0",
+    "type": "split",
+    "children": [
+      {
+        "id": "9501e3af8e55e157",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4e645fdf844ac89d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "反向链接"
+            }
+          },
+          {
+            "id": "0a18758f1066ca43",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "出链"
+            }
+          },
+          {
+            "id": "ab9f8a5dd3aac7d1",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "5184dd71b3433923",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "f73c1884604e6d5b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "feeds/news/2026-04-02_Iran_war_live__Trump_claims_goals_nearing_completion,_vows_to_'finish_job'_30d2f01d4e76.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "2026-04-02_Iran_war_live__Trump_claims_goals_nearing_completion,_vows_to_'finish_job'_30d2f01d4e76 的大纲"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "8034e5b62ddd0287",
+  "lastOpenFiles": [
+    "scripts/fix_links.py",
+    "summary/2026_04_01.md",
+    "summary/2026_03_31.md",
+    "summary/2026_03_30.md",
+    "summary/2026_03_29.md",
+    "scripts/write_summaries.py",
+    "summary/2026_03_28.md",
+    "summary/2026_04_02.md",
+    "summary/2026_04_03.md",
+    "feeds/news/2026-03-22_Convincing_Is_Not_Persuading_b070bc73b997.md",
+    "feeds/news/2026-03-21_Former_FBI_Director_Robert_Mueller,_who_investigated_Russia-Trump_campaign_ties,_31c432c028f0.md",
+    "feeds/news/2026-03-20_Japan’s_Takaichi_tries_to_reaffirm_alliance_with_Trump_as_he_seeks_help_securing_4ccb6a0df288.md",
+    "feeds/news/2026-03-18_An_industrial_piping_contractor_on_Claude_Code_[video]_41bc15526138.md",
+    "feeds/news/2026-04-02_Pakistan_to_continue_with_Iran-US_mediation_despite_'obstacles'_0fc892df5959.md",
+    "feeds/news/2026-04-02_Can_Starmer's_40-nation_coalition_open_the_Strait_of_Hormuz__fed9a3a8cbc9.md",
+    "feeds/social/2026-04-02_伊朗10分钟5波导弹袭击以色列_01aa2178b992.md",
+    "feeds/news/2026-04-02_Iran_war_live__Trump_claims_goals_nearing_completion,_vows_to_'finish_job'_30d2f01d4e76.md",
+    "canvas/2026-04-03_daily.canvas",
+    "summary",
+    "feeds/social/2026-04-03_OpenAI_刚融到_1220_亿美元，却在二级市场「没人接盘」，马斯克表示「毫不意外」，这是为何？_39aff395d38e.md",
+    "feeds/news/2026-04-03_Show_HN__ctx_–_an_Agentic_Development_Environment_(ADE)_ffcbc88f7c33.md",
+    "canvas",
+    "feeds/news/2026-04-03_Show_HN__Apfel_–_The_free_AI_already_on_your_Mac_782a0c2efb53.md",
+    "feeds/news/2026-04-03_Show_HN__An_evidence-rated_encyclopedia_of_peptides_0a010ac0a228.md",
+    "feeds/news/2026-04-03_SSH_certificates__the_better_SSH_experience_56e2b75930b5.md",
+    "feeds/news/2026-04-03_Stocks_recover_from_early_losses_and_close_with_a_weekly_gain._US_oil_tops_$110__28e5015d7b57.md",
+    "feeds/news/2026-04-03_Rapper_Pooh_Shiesty_charged_with_kidnapping_over_alleged_dispute_involving_rappe_d009c2f624ad.md",
+    "feeds/news/2026-04-03_Pentagon_Pete's_Bigoted_Reason_for_Firing_Top_General_Leaks_8abd5e7e0e1a.md",
+    "feeds/news/2026-04-03_Rubble,_mud_and_hair__How_to_rebuild_a_home_in_Gaza_71475202ffb8.md",
+    "feeds/finance/2026-03-25_Big_Pipeline_for_Defense_IPOs__JPMorgan's_Marengo_002d7d7b44cb.md",
+    "未命名.canvas",
+    "未命名 1.canvas",
+    "未命名.base"
+  ]
+}
