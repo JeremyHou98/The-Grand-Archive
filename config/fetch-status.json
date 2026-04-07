@@ -3,7 +3,7 @@
     "name": "BBC 中文",
     "url": "https://feeds.bbci.co.uk/zhongwen/simp/rss.xml",
     "category": "news",
-    "lastFetched": "2026-04-07T19:00:14.084Z",
+    "lastFetched": "2026-04-07T19:59:46.586Z",
     "lastResult": "success",
     "entriesSaved": 0,
     "entriesSkipped": 37
@@ -12,7 +12,7 @@
     "name": "纽约时报中文",
     "url": "https://cn.nytimes.com/rss/",
     "category": "news",
-    "lastFetched": "2026-04-07T19:00:14.690Z",
+    "lastFetched": "2026-04-07T19:59:47.070Z",
     "lastResult": "success",
     "entriesSaved": 0,
     "entriesSkipped": 20
@@ -31,16 +31,16 @@
     "name": "Al Jazeera",
     "url": "https://www.aljazeera.com/xml/rss/all.xml",
     "category": "news",
-    "lastFetched": "2026-04-07T19:00:14.954Z",
+    "lastFetched": "2026-04-07T19:59:47.307Z",
     "lastResult": "success",
-    "entriesSaved": 5,
-    "entriesSkipped": 20
+    "entriesSaved": 8,
+    "entriesSkipped": 17
   },
   "https://www.foreignaffairs.com/rss.xml": {
     "name": "Foreign Affairs",
     "url": "https://www.foreignaffairs.com/rss.xml",
     "category": "news",
-    "lastFetched": "2026-04-07T19:00:16.628Z",
+    "lastFetched": "2026-04-07T19:59:48.656Z",
     "lastResult": "success",
     "entriesSaved": 0,
     "entriesSkipped": 20
@@ -49,25 +49,25 @@
     "name": "Hacker News",
     "url": "https://hnrss.org/frontpage",
     "category": "news",
-    "lastFetched": "2026-04-07T19:00:27.413Z",
+    "lastFetched": "2026-04-07T19:59:51.793Z",
     "lastResult": "success",
-    "entriesSaved": 5,
-    "entriesSkipped": 15
+    "entriesSaved": 4,
+    "entriesSkipped": 16
   },
   "https://feeds.bloomberg.com/markets/news.rss": {
     "name": "Bloomberg Markets",
     "url": "https://feeds.bloomberg.com/markets/news.rss",
     "category": "finance",
-    "lastFetched": "2026-04-07T19:00:29.327Z",
+    "lastFetched": "2026-04-07T19:59:53.836Z",
     "lastResult": "success",
-    "entriesSaved": 13,
-    "entriesSkipped": 17
+    "entriesSaved": 8,
+    "entriesSkipped": 22
   },
   "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258": {
     "name": "CNBC Economy",
     "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258",
     "category": "finance",
-    "lastFetched": "2026-04-07T19:00:29.777Z",
+    "lastFetched": "2026-04-07T19:59:54.280Z",
     "lastResult": "success",
     "entriesSaved": 0,
     "entriesSkipped": 30
@@ -86,25 +86,25 @@
     "name": "MarketWatch",
     "url": "https://feeds.marketwatch.com/marketwatch/topstories/",
     "category": "finance",
-    "lastFetched": "2026-04-07T19:00:30.091Z",
+    "lastFetched": "2026-04-07T19:59:54.604Z",
     "lastResult": "success",
-    "entriesSaved": 4,
-    "entriesSkipped": 6
+    "entriesSaved": 0,
+    "entriesSkipped": 10
   },
   "https://feeds.feedburner.com/zerohedge/feed": {
     "name": "ZeroHedge",
     "url": "https://feeds.feedburner.com/zerohedge/feed",
     "category": "finance",
-    "lastFetched": "2026-04-07T19:00:32.787Z",
+    "lastFetched": "2026-04-07T19:59:57.113Z",
     "lastResult": "success",
-    "entriesSaved": 0,
-    "entriesSkipped": 25
+    "entriesSaved": 7,
+    "entriesSkipped": 18
   },
   "{{RSSHUB_BASE_URL}}/apnews/topics/apf-topnews": {
     "name": "AP News",
     "url": "{{RSSHUB_BASE_URL}}/apnews/topics/apf-topnews",
     "category": "news",
-    "lastFetched": "2026-04-07T19:00:16.399Z",
+    "lastFetched": "2026-04-07T19:59:48.333Z",
     "lastResult": "success",
     "entriesSaved": 0,
     "entriesSkipped": 40
@@ -113,7 +113,7 @@
     "name": "华尔街见闻",
     "url": "{{RSSHUB_BASE_URL}}/wallstreetcn/news/global",
     "category": "finance",
-    "lastFetched": "2026-04-07T19:00:28.132Z",
+    "lastFetched": "2026-04-07T19:59:52.638Z",
     "lastResult": "success",
     "entriesSaved": 0,
     "entriesSkipped": 45
@@ -122,7 +122,7 @@
     "name": "第一财经",
     "url": "{{RSSHUB_BASE_URL}}/yicai/brief",
     "category": "finance",
-    "lastFetched": "2026-04-07T19:00:28.742Z",
+    "lastFetched": "2026-04-07T19:59:53.177Z",
     "lastResult": "success",
     "entriesSaved": 0,
     "entriesSkipped": 50
@@ -131,7 +131,7 @@
     "name": "财新网",
     "url": "{{RSSHUB_BASE_URL}}/caixin/latest",
     "category": "finance",
-    "lastFetched": "2026-04-07T19:00:30.461Z",
+    "lastFetched": "2026-04-07T19:59:55.068Z",
     "lastResult": "success",
     "entriesSaved": 0,
     "entriesSkipped": 19
@@ -140,7 +140,7 @@
     "name": "知乎热榜",
     "url": "{{RSSHUB_BASE_URL}}/zhihu/hot",
     "category": "social",
-    "lastFetched": "2026-04-07T19:00:32.186Z",
+    "lastFetched": "2026-04-07T19:59:56.340Z",
     "lastResult": "success",
     "entriesSaved": 0,
     "entriesSkipped": 30
@@ -149,7 +149,7 @@
     "name": "金十数据",
     "url": "{{RSSHUB_BASE_URL}}/jin10",
     "category": "finance",
-    "lastFetched": "2026-04-07T19:00:33.129Z",
+    "lastFetched": "2026-04-07T19:59:57.392Z",
     "lastResult": "success",
     "entriesSaved": 0,
     "entriesSkipped": 20
@@ -158,7 +158,7 @@
     "name": "雪球热帖",
     "url": "{{RSSHUB_BASE_URL}}/xueqiu/hots",
     "category": "finance",
-    "lastFetched": "2026-04-07T19:00:30.780Z",
+    "lastFetched": "2026-04-07T19:59:55.309Z",
     "lastResult": "success",
     "entriesSaved": 0,
     "entriesSkipped": 10
@@ -177,16 +177,16 @@
     "name": "The Diplomat",
     "url": "https://thediplomat.com/feed/",
     "category": "news",
-    "lastFetched": "2026-04-07T19:00:17.357Z",
+    "lastFetched": "2026-04-07T19:59:49.046Z",
     "lastResult": "success",
-    "entriesSaved": 3,
-    "entriesSkipped": 93
+    "entriesSaved": 0,
+    "entriesSkipped": 96
   },
   "{{RSSHUB_BASE_URL}}/cankaoxiaoxi/column/diyi": {
     "name": "参考消息 · 第一关注",
     "url": "{{RSSHUB_BASE_URL}}/cankaoxiaoxi/column/diyi",
     "category": "news",
-    "lastFetched": "2026-04-07T19:00:18.724Z",
+    "lastFetched": "2026-04-07T19:59:50.053Z",
     "lastResult": "success",
     "entriesSaved": 0,
     "entriesSkipped": 50
@@ -195,7 +195,7 @@
     "name": "参考消息 · 国际",
     "url": "{{RSSHUB_BASE_URL}}/cankaoxiaoxi/column/gj",
     "category": "news",
-    "lastFetched": "2026-04-07T19:00:19.538Z",
+    "lastFetched": "2026-04-07T19:59:50.439Z",
     "lastResult": "success",
     "entriesSaved": 0,
     "entriesSkipped": 50
@@ -204,7 +204,7 @@
     "name": "人民网",
     "url": "{{RSSHUB_BASE_URL}}/people",
     "category": "news",
-    "lastFetched": "2026-04-07T19:00:19.824Z",
+    "lastFetched": "2026-04-07T19:59:51.339Z",
     "lastResult": "success",
     "entriesSaved": 0,
     "entriesSkipped": 30
@@ -213,7 +213,7 @@
     "name": "财联社电报",
     "url": "{{RSSHUB_BASE_URL}}/cls/telegraph",
     "category": "finance",
-    "lastFetched": "2026-04-07T19:00:31.127Z",
+    "lastFetched": "2026-04-07T19:59:55.597Z",
     "lastResult": "success",
     "entriesSaved": 0,
     "entriesSkipped": 20
@@ -222,7 +222,7 @@
     "name": "东方财富财经资讯",
     "url": "{{RSSHUB_BASE_URL}}/eastmoney/search/A%E8%82%A1",
     "category": "finance",
-    "lastFetched": "2026-04-07T19:00:31.569Z",
+    "lastFetched": "2026-04-07T19:59:55.827Z",
     "lastResult": "success",
     "entriesSaved": 0,
     "entriesSkipped": 10
@@ -231,7 +231,7 @@
     "name": "同花顺实时快讯",
     "url": "{{RSSHUB_BASE_URL}}/10jqka/realtimenews",
     "category": "finance",
-    "lastFetched": "2026-04-07T19:00:31.923Z",
+    "lastFetched": "2026-04-07T19:59:56.143Z",
     "lastResult": "success",
     "entriesSaved": 0,
     "entriesSkipped": 20
