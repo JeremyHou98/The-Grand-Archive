@@ -5,7 +5,7 @@ import { statsCommand } from "./commands/stats";
 import { suggestCommand } from "./commands/suggest";
 import { formatTable, formatJson } from "./output";
 
-const BASE_URL = process.env.DAK_SERVER_URL ?? "http://localhost:3000";
+const BASE_URL = process.env.DAK_SERVER_URL ?? "https://dak-server.fly.dev";
 const API_KEY = process.env.DAK_API_KEY;
 
 const client = new DakClient({ baseUrl: BASE_URL, apiKey: API_KEY });
@@ -59,7 +59,7 @@ Options:
   --json               Output as JSON
 
 Environment:
-  DAK_SERVER_URL       Server URL (default: http://localhost:3000)
+  DAK_SERVER_URL       Server URL (default: https://dak-server.fly.dev)
   DAK_API_KEY          API key for authenticated access
 `.trim());
 }
