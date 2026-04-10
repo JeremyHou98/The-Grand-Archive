@@ -1,7 +1,7 @@
 # The Grand Archive
 
-[![npm](https://img.shields.io/npm/v/@littlelittlecloud/dak)](https://www.npmjs.com/package/@littlelittlecloud/dak)
-[![npm](https://img.shields.io/npm/v/@littlelittlecloud/dak-cli)](https://www.npmjs.com/package/@littlelittlecloud/dak-cli)
+[![npm](https://img.shields.io/npm/v/@littlelittlecloud/dak?label=dak)](https://www.npmjs.com/package/@littlelittlecloud/dak)
+[![npm](https://img.shields.io/npm/v/@littlelittlecloud/dak-cli?label=dak-cli)](https://www.npmjs.com/package/@littlelittlecloud/dak-cli)
 [![GitHub stars](https://img.shields.io/github/stars/LittleLittleCloud/The-Grand-Archive?style=social)](https://github.com/LittleLittleCloud/The-Grand-Archive)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
