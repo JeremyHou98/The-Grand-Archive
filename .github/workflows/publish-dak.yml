@@ -1,6 +1,9 @@
 name: Publish dak to npm
 
 on:
+  # GitHub Release 创建时自动发布
+  release:
+    types: [published]
   # 手动触发
   workflow_dispatch:
     inputs:
@@ -47,21 +50,25 @@ jobs:
 
       - name: Set version
         run: |
-          BUMP="${{ inputs.bump }}"
-          DATE=$(date -u +%Y%m%d)
-          HASH=$(git rev-parse --short HEAD)
+          # Use release tag if triggered by release (e.g. v0.3.0)
+          if [[ "${{ github.event_name }}" == "release" ]]; then
+            VERSION="${{ github.event.release.tag_name }}"
+            VERSION="${VERSION#v}"  # strip leading 'v'
+          else
+            BUMP="${{ inputs.bump }}"
+            DATE=$(date -u +%Y%m%d)
+            HASH=$(git rev-parse --short HEAD)
 
-          # Bump base version if requested
-          if [[ -n "$BUMP" && "$BUMP" != "none" ]]; then
-            cd packages/sdk && npm version "$BUMP" --no-git-tag-version && cd ../..
-            cd packages/cli && npm version "$BUMP" --no-git-tag-version && cd ../..
+            if [[ -n "$BUMP" && "$BUMP" != "none" ]]; then
+              cd packages/sdk && npm version "$BUMP" --no-git-tag-version && cd ../..
+              cd packages/cli && npm version "$BUMP" --no-git-tag-version && cd ../..
+            fi
+
+            BASE=$(node -p "require('./packages/sdk/package.json').version")
+            VERSION="${BASE}-${DATE}.${HASH}"
           fi
 
-          # Read base version from SDK
-          BASE=$(node -p "require('./packages/sdk/package.json').version")
-          VERSION="${BASE}-${DATE}.${HASH}"
-
-          # Set prerelease version on both packages
+          # Set version on both packages
           cd packages/sdk && npm version "$VERSION" --no-git-tag-version --allow-same-version && cd ../..
           cd packages/cli && npm version "$VERSION" --no-git-tag-version --allow-same-version && cd ../..
 

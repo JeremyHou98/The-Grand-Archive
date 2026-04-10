@@ -27,7 +27,7 @@ FROM oven/bun:1-slim
 # Install Litestream
 RUN apt-get update && \
     apt-get install -y wget && \
-    wget -qO /tmp/litestream.deb https://github.com/benbjohnson/litestream/releases/latest/download/litestream-v0.3.13-linux-amd64.deb && \
+    wget -qO /tmp/litestream.deb https://github.com/benbjohnson/litestream/releases/download/v0.5.11/litestream-0.5.11-linux-x86_64.deb && \
     dpkg -i /tmp/litestream.deb && \
     rm /tmp/litestream.deb && \
     apt-get purge -y wget && \
