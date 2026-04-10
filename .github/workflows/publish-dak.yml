@@ -61,16 +61,14 @@ jobs:
 
             if [[ -n "$BUMP" && "$BUMP" != "none" ]]; then
               cd packages/sdk && npm version "$BUMP" --no-git-tag-version && cd ../..
-              cd packages/cli && npm version "$BUMP" --no-git-tag-version && cd ../..
             fi
 
             BASE=$(node -p "require('./packages/sdk/package.json').version")
             VERSION="${BASE}-${DATE}.${HASH}"
           fi
 
-          # Set version on both packages
-          cd packages/sdk && npm version "$VERSION" --no-git-tag-version --allow-same-version && cd ../..
-          cd packages/cli && npm version "$VERSION" --no-git-tag-version --allow-same-version && cd ../..
+          # Set version on both packages (use node to avoid npm choking on workspace: protocol)
+          node -e "const fs=require('fs'); for(const p of ['packages/sdk','packages/cli']){const f=p+'/package.json';const j=JSON.parse(fs.readFileSync(f));j.version='$VERSION';fs.writeFileSync(f,JSON.stringify(j,null,2)+'\n')}"
 
           echo "VERSION=$VERSION" >> "$GITHUB_ENV"
           echo "📌 Version: $VERSION"
