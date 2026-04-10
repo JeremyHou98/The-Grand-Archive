@@ -2,7 +2,7 @@ app = "dak-worker"
 primary_region = "nrt"
 
 [build]
-  dockerfile = "../../packages/ingestion-worker/Dockerfile"
+  dockerfile = "packages/ingestion-worker/Dockerfile"
 
 [env]
   DAK_SERVER_URL = "https://dak-server.fly.dev"
