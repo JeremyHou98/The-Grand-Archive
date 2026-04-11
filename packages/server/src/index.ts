@@ -70,8 +70,18 @@ async function main() {
   }
 
   // Also clean up leftover temp tables from previous migrations
-  for (const t of ["_users_old", "_sessions_old", "_api_keys_old"]) {
+  for (const t of ["_users_old", "_users_tmp", "_sessions_old", "_sessions_tmp", "_api_keys_old", "_account_tmp", "_verification_tmp"]) {
     db.exec(`DROP TABLE IF EXISTS ${t}`);
+  }
+
+  // Drop api_keys if it references a now-dropped temp table
+  const apiKeysSql = db
+    .query<{ sql: string }, []>(
+      "SELECT sql FROM sqlite_master WHERE type='table' AND name='api_keys'",
+    )
+    .get();
+  if (apiKeysSql && /_(users|sessions|api_keys)_(old|tmp|fix)/.test(apiKeysSql.sql)) {
+    db.exec("DROP TABLE api_keys");
   }
 
   db.close();
