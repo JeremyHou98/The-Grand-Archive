@@ -7,11 +7,13 @@ const DB_PATH = process.env.DB_PATH ?? "./data/dak.db";
 const resend = new Resend(process.env.RESEND_API_KEY);
 const EMAIL_FROM = process.env.EMAIL_FROM ?? "onboarding@resend.dev";
 
+const BASE_URL = process.env.BETTER_AUTH_URL ?? "http://localhost:3000";
+
 export const auth = betterAuth({
   database: new Database(DB_PATH, { create: true }),
-  baseURL: process.env.BETTER_AUTH_URL ?? "http://localhost:3000",
+  baseURL: BASE_URL,
   basePath: "/api/auth",
-  trustedOrigins: ["http://localhost:5173"],
+  trustedOrigins: [BASE_URL, "http://localhost:5173"],
   emailAndPassword: {
     enabled: true,
     requireEmailVerification: true,

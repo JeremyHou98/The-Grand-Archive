@@ -41,6 +41,17 @@ jobs:
       - name: Setup Fly
         uses: superfly/flyctl-actions/setup-flyctl@master
 
+      - name: Sync secrets
+        run: |
+          flyctl secrets set -a dak-server --stage \
+            R2_ENDPOINT="${{ secrets.R2_ENDPOINT }}" \
+            R2_ACCESS_KEY_ID="${{ secrets.R2_ACCESS_KEY_ID }}" \
+            R2_SECRET_ACCESS_KEY="${{ secrets.R2_SECRET_ACCESS_KEY }}" \
+            RESEND_API_KEY="${{ secrets.RESEND_API_KEY }}" \
+            BETTER_AUTH_URL="https://dak-server.fly.dev"
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
       - name: Deploy server
         run: flyctl deploy --config packages/server/fly.toml --remote-only
         env:
