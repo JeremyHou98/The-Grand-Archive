@@ -19,7 +19,7 @@ COPY tsconfig.json ./
 
 # Build UI and server
 RUN cd packages/ui && bun run build && \
-    cd ../server && bun build src/index.ts --outdir dist --target bun
+    cd ../server && bun build src/index.ts --outdir dist --target bun --external @node-rs/jieba --external @node-rs/jieba/dict
 
 # Stage 2: runtime
 FROM oven/bun:1-slim
@@ -38,6 +38,9 @@ WORKDIR /app
 
 # Copy server build output
 COPY --from=builder /app/packages/server/dist /app
+
+# Install @node-rs/jieba native addon (cannot be bundled by bun build)
+RUN cd /app && bun add @node-rs/jieba
 
 # Copy UI build output to static/
 COPY --from=builder /app/packages/ui/dist /app/static
