@@ -11,9 +11,10 @@ export class Fts5SearchEngine implements SearchEngine {
   async init(): Promise<void> {
     const db = getDb();
 
-    // Create FTS5 virtual table (content-less: we join back to entries for metadata)
+    // Drop and recreate to ensure clean state (content-less tables don't support DELETE)
+    db.exec("DROP TABLE IF EXISTS entries_fts");
     db.exec(`
-      CREATE VIRTUAL TABLE IF NOT EXISTS entries_fts USING fts5(
+      CREATE VIRTUAL TABLE entries_fts USING fts5(
         title,
         body,
         content='',
@@ -26,9 +27,7 @@ export class Fts5SearchEngine implements SearchEngine {
       .query("SELECT rowid, id, title, content FROM entries")
       .all() as { rowid: number; id: string; title: string; content: string | null }[];
 
-    // Clear and repopulate
-    db.exec("DELETE FROM entries_fts");
-
+    // Populate index
     const insert = db.prepare(
       "INSERT INTO entries_fts(rowid, title, body) VALUES (?, ?, ?)"
     );
