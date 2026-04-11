@@ -78,6 +78,69 @@ async function main() {
       UPDATE users SET name = username, createdAt = created_at, updatedAt = created_at WHERE name = '';
     `);
   }
+
+  // Phase 2: Rebuild users table to make legacy columns (username, password) nullable.
+  // BA OAuth creates users without username/password; NOT NULL constraint causes failure.
+  // SQLite cannot ALTER COLUMN, so we recreate the table.
+  const usernameInfo = db
+    .query<{ notnull: number }, []>(`PRAGMA table_info(users)`)
+    .all()
+    .find((r: any) => r.name === "username");
+  if (usernameInfo && usernameInfo.notnull === 1) {
+    db.exec(`
+      ALTER TABLE users RENAME TO _users_old;
+      CREATE TABLE users (
+        id TEXT PRIMARY KEY,
+        username TEXT UNIQUE,
+        email TEXT UNIQUE,
+        password TEXT,
+        role TEXT DEFAULT 'user',
+        plan TEXT DEFAULT 'free',
+        req_balance INTEGER DEFAULT 0,
+        created_at TEXT DEFAULT (datetime('now')),
+        name TEXT NOT NULL DEFAULT '',
+        emailVerified INTEGER NOT NULL DEFAULT 0,
+        image TEXT,
+        createdAt TEXT NOT NULL DEFAULT '',
+        updatedAt TEXT NOT NULL DEFAULT '',
+        displayUsername TEXT,
+        banned INTEGER DEFAULT 0,
+        banReason TEXT,
+        banExpires TEXT,
+        reqBalance INTEGER NOT NULL DEFAULT 0
+      );
+      INSERT INTO users SELECT * FROM _users_old;
+      DROP TABLE _users_old;
+    `);
+  }
+
+  // Phase 2b: Rebuild sessions table to make legacy columns nullable.
+  const userIdOldInfo = db
+    .query<{ notnull: number }, []>(`PRAGMA table_info(sessions)`)
+    .all()
+    .find((r: any) => r.name === "user_id");
+  if (userIdOldInfo && userIdOldInfo.notnull === 1) {
+    db.exec(`
+      ALTER TABLE sessions RENAME TO _sessions_old;
+      CREATE TABLE sessions (
+        id TEXT PRIMARY KEY,
+        user_id TEXT,
+        expires_at TEXT,
+        created_at TEXT DEFAULT (datetime('now')),
+        token TEXT NOT NULL DEFAULT '',
+        expiresAt TEXT NOT NULL DEFAULT '',
+        createdAt TEXT NOT NULL DEFAULT '',
+        updatedAt TEXT NOT NULL DEFAULT '',
+        ipAddress TEXT,
+        userAgent TEXT,
+        userId TEXT NOT NULL DEFAULT '',
+        impersonatedBy TEXT
+      );
+      INSERT INTO sessions SELECT * FROM _sessions_old;
+      DROP TABLE _sessions_old;
+    `);
+  }
+
   if (cols("expires_at", "sessions") && !cols("token", "sessions")) {
     db.exec(`
       ALTER TABLE sessions ADD COLUMN token TEXT NOT NULL DEFAULT '';
