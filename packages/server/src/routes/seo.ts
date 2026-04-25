@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { getDb } from "../db/client";
 import { readFileSync } from "fs";
+import { swaggerUI } from "@hono/swagger-ui";
 
 export const seoRoutes = new Hono();
 
@@ -13,6 +14,59 @@ seoRoutes.get("/robots.txt", (c) => {
     "Sitemap: https://dak-news.com/sitemap.xml",
   ].join("\n");
   return c.text(body, 200, { "Content-Type": "text/plain" });
+});
+
+/* ── llms.txt ── */
+seoRoutes.get("/llms.txt", (c) => {
+  const proto = c.req.header("x-forwarded-proto") ?? (c.req.url.startsWith("https") ? "https" : "http");
+  const host = c.req.header("host") ?? "dak-news.com";
+  const base = `${proto}://${host}`;
+  const md = [
+    `# 大案牍库 (The Grand Archive)`,
+    `> A real-time news database tracking 20+ authoritative sources across finance, geopolitics, tech, and social trending.`,
+    ``,
+    `For API reference, endpoints, and how to query this database, see our Agent Integration Guide:`,
+    `[${base}/AGENTS.md](${base}/AGENTS.md)`
+  ].join("\n");
+  return c.text(md, 200, { "Content-Type": "text/plain; charset=utf-8" });
+});
+
+/* ── Swagger UI (Human-readable OpenAPI docs) ── */
+seoRoutes.get("/docs", swaggerUI({ url: "/openapi.json" }));
+
+/* ── Markdown Export for LLMs (GEO) ── */
+seoRoutes.get("/entry/:id", (c, next) => {
+  const rawId = decodeURIComponent(c.req.param("id"));
+  if (!rawId.endsWith(".md")) {
+    return next();
+  }
+  const id = rawId.slice(0, -3);
+  const db = getDb();
+  
+  const entry = db
+    .query<
+      { title: string; source: string; category: string; published: string; content: string | null; url: string },
+      [string]
+    >("SELECT title, source, category, published, content, url FROM entries WHERE id = ?")
+    .get(id);
+
+  if (!entry) {
+    return c.text("Entry not found", 404);
+  }
+
+  const md = [
+    `# ${entry.title}`,
+    ``,
+    `**Source:** ${entry.source} | **Category:** ${entry.category} | **Published:** ${entry.published}`,
+    `**Original URL:** ${entry.url}`,
+    ``,
+    entry.content || "*No content available*"
+  ].join("\n");
+
+  return c.text(md, 200, {
+    "Content-Type": "text/markdown; charset=utf-8",
+    "Cache-Control": "public, max-age=3600"
+  });
 });
 
 /* ── AGENTS.md — zero-install integration guide for AI agents ── */
@@ -338,6 +392,25 @@ export function entryMetaMiddleware(staticDir: string) {
       html = html.replace(
         /<!-- SEO:START -->[\s\S]*?<!-- SEO:END -->/,
         metaTags
+      );
+
+      const bodyContent = [
+        `<noscript>`,
+        `  <article>`,
+        `    <h1>${escapeHtml(entry.title)}</h1>`,
+        `    <div>`,
+        `      <span>来源: ${escapeHtml(entry.source)}</span> | `,
+        `      <span>分类: ${escapeHtml(entry.category)}</span> | `,
+        `      <time datetime="${entry.published}">${new Date(entry.published).toLocaleString()}</time>`,
+        `    </div>`,
+        `    <p>${escapeHtml(entry.content || "*无正文*")}</p>`,
+        `  </article>`,
+        `</noscript>`,
+      ].join("\n");
+
+      html = html.replace(
+        /<noscript>[\s\S]*?<\/noscript>/,
+        bodyContent
       );
     }
 
