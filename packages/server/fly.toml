@@ -15,14 +15,6 @@ primary_region = "nrt"
   auto_start_machines = false
   min_machines_running = 1
 
-  [http_service.checks]
-    [http_service.checks.alive]
-      grace_period = "30s"
-      interval = "15s"
-      method = "GET"
-      path = "/health"
-      timeout = "5s"
-
 [[vm]]
   memory = "512mb"
   cpu_kind = "shared"
