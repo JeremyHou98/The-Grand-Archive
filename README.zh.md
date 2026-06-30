@@ -85,9 +85,9 @@ dak search "AI 监管" --category tech
 
 ## Skills（AI Agent 集成）
 
-`skills/` 目录下包含两个 Claude Code / AI Agent 技能。
+`skills/`（Claude Code）和 `.cursor/skills/`（Cursor）目录下各包含两个 AI Agent 技能。
 
-### `skills/dak` — 搜索与浏览
+### `dak` — 搜索与浏览
 
 > 搜索和访问大案牍库中的 feed 数据
 
@@ -101,7 +101,7 @@ dak search "AI 监管" --category tech
 
 **触发关键词：** `搜索`、`查找文章`、`dak search`、`dak feeds`
 
-### `skills/dak_summary` — 结构化分析
+### `dak_summary` — 结构化分析
 
 > 基于 feed 数据的结构化分析方法论
 
@@ -126,19 +126,29 @@ dak search "AI 监管" --category tech
 
 ### 安装 Skills
 
-推荐一键安装：
+推荐一键安装（Claude Code）：
 
 ```bash
 npx skills add LittleLittleCloud/The-Grand-Archive
 ```
 
-或手动复制：
+或手动复制到 Claude Code：
 
 ```bash
 cp -r skills/dak /your-project/.claude/skills/dak
 cp -r skills/dak_summary /your-project/.claude/skills/dak_summary
 npm install -g @littlelittlecloud/dak-cli
 ```
+
+如使用 **Cursor**，复制到 `.cursor/skills/` 目录：
+
+```bash
+cp -r .cursor/skills/dak /your-project/.cursor/skills/dak
+cp -r .cursor/skills/dak_summary /your-project/.cursor/skills/dak_summary
+npm install -g @littlelittlecloud/dak-cli
+```
+
+> 说明：本仓库同时维护 `skills/`（Claude Code）和 `.cursor/skills/`（Cursor）两份技能源文件。可任选一份复制到你的项目，或使用 `npx skills add`（针对 Claude Code）。
 
 ---
 

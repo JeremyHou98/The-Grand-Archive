@@ -85,9 +85,9 @@ Full configuration: [`config/sources.yaml`](config/sources.yaml)
 
 ## Skills (AI Agent Integration)
 
-Two Claude Code / AI Agent skills are included in the `skills/` directory.
+Two AI Agent skills are included, available for both **Claude Code** (`skills/`) and **Cursor** (`.cursor/skills/`).
 
-### `skills/dak` — Search & Browse
+### `dak` — Search & Browse
 
 > Search and access feed data from The Grand Archive
 
@@ -101,7 +101,7 @@ Supports full-text search, filtering by category / source / tag / date range.
 
 **Trigger keywords:** `search`, `find articles`, `dak search`, `dak feeds`
 
-### `skills/dak_summary` — Structured Analysis
+### `dak_summary` — Structured Analysis
 
 > Methodology for structured analysis built on feed data
 
@@ -125,19 +125,29 @@ Two key use cases:
 
 ### Install Skills
 
-Recommended — one command:
+Recommended — one command (Claude Code):
 
 ```bash
 npx skills add LittleLittleCloud/The-Grand-Archive
 ```
 
-Or copy manually:
+Or copy manually into Claude Code:
 
 ```bash
 cp -r skills/dak /your-project/.claude/skills/dak
 cp -r skills/dak_summary /your-project/.claude/skills/dak_summary
 npm install -g @littlelittlecloud/dak-cli
 ```
+
+For **Cursor**, copy into `.cursor/skills/` instead:
+
+```bash
+cp -r .cursor/skills/dak /your-project/.cursor/skills/dak
+cp -r .cursor/skills/dak_summary /your-project/.cursor/skills/dak_summary
+npm install -g @littlelittlecloud/dak-cli
+```
+
+> Note: This repo ships skill sources in both `skills/` (for Claude Code) and `.cursor/skills/` (for Cursor). Either copy from this repo into your project, or use `npx skills add` which targets Claude Code.
 
 ---
 
