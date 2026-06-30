@@ -101,7 +101,7 @@ Supports full-text search, filtering by category / source / tag / date range.
 
 **Trigger keywords:** `search`, `find articles`, `dak search`, `dak feeds`
 
-### `dak_summary` — Structured Analysis
+### `dak-summary` — Structured Analysis
 
 > Methodology for structured analysis built on feed data
 
@@ -135,7 +135,7 @@ Or copy manually into Claude Code:
 
 ```bash
 cp -r skills/dak /your-project/.claude/skills/dak
-cp -r skills/dak_summary /your-project/.claude/skills/dak_summary
+cp -r skills/dak-summary /your-project/.claude/skills/dak-summary
 npm install -g @littlelittlecloud/dak-cli
 ```
 
@@ -143,7 +143,7 @@ For **Cursor**, copy into `.cursor/skills/` instead:
 
 ```bash
 cp -r .cursor/skills/dak /your-project/.cursor/skills/dak
-cp -r .cursor/skills/dak_summary /your-project/.cursor/skills/dak_summary
+cp -r .cursor/skills/dak-summary /your-project/.cursor/skills/dak-summary
 npm install -g @littlelittlecloud/dak-cli
 ```
 

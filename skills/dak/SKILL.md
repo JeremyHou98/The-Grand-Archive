@@ -1,6 +1,6 @@
 ---
 name: dak
-description: "大案牍库 AI Skill — 搜索与浏览。通过 CLI / TypeScript SDK 对 14,000+ feed 条目进行全文搜索、多维过滤和浏览。结构化分析请用 dak_summary skill。"
+description: "大案牍库 AI Skill — 搜索与浏览。通过 CLI / TypeScript SDK 对 14,000+ feed 条目进行全文搜索、多维过滤和浏览。结构化分析请用 dak-summary skill。"
 version: 0.4.0
 ---
 
@@ -82,4 +82,4 @@ For full CLI / SDK reference (all commands, options, methods, error handling, ex
 - Use `--json` output for programmatic processing: `dak search "tariff" --json --limit 100`
 - Combine Chinese and English keywords with separate searches when covering bilingual topics.
 - Tier limits apply: anonymous (28 days), free (90 days), premium (unlimited). Sign in or set `DAK_API_KEY` for broader history.
-- For structured analysis (daily digest, topic deep-dive), use the companion `dak_summary` skill.
+- For structured analysis (daily digest, topic deep-dive), use the companion `dak-summary` skill.

@@ -101,7 +101,7 @@ dak search "AI 监管" --category tech
 
 **触发关键词：** `搜索`、`查找文章`、`dak search`、`dak feeds`
 
-### `dak_summary` — 结构化分析
+### `dak-summary` — 结构化分析
 
 > 基于 feed 数据的结构化分析方法论
 
@@ -136,7 +136,7 @@ npx skills add LittleLittleCloud/The-Grand-Archive
 
 ```bash
 cp -r skills/dak /your-project/.claude/skills/dak
-cp -r skills/dak_summary /your-project/.claude/skills/dak_summary
+cp -r skills/dak-summary /your-project/.claude/skills/dak-summary
 npm install -g @littlelittlecloud/dak-cli
 ```
 
@@ -144,7 +144,7 @@ npm install -g @littlelittlecloud/dak-cli
 
 ```bash
 cp -r .cursor/skills/dak /your-project/.cursor/skills/dak
-cp -r .cursor/skills/dak_summary /your-project/.cursor/skills/dak_summary
+cp -r .cursor/skills/dak-summary /your-project/.cursor/skills/dak-summary
 npm install -g @littlelittlecloud/dak-cli
 ```
 

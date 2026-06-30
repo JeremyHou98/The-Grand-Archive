@@ -102,7 +102,7 @@ config/                       (root-level, shared config for local dev)
 skills/                       Claude Code / AI Agent skills
 ├── dak/
 │   └── SKILL.md
-└── dak_summary/
+└── dak-summary/
     └── SKILL.md
 
 doc/
