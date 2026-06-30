@@ -1,7 +1,6 @@
 ---
 name: dak
 description: "大案牍库 AI Skill — 搜索与浏览。通过 CLI / TypeScript SDK 对 14,000+ feed 条目进行全文搜索、多维过滤和浏览。结构化分析请用 dak-summary skill。"
-version: 0.4.0
 ---
 
 # dak Skill — Search & Browse
