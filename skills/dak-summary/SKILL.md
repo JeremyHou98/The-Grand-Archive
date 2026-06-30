@@ -1,7 +1,6 @@
 ---
 name: dak-summary
 description: "大案牍库 AI Skill — 结构化分析。从海量 feed 数据中提炼每日总结与专题总结。核心三步：海量查询 → 关联分析 → 结果输出。"
-version: 0.4.0
 ---
 
 # dak-summary Skill — Structured Analysis
