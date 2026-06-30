@@ -1,6 +1,9 @@
 ---
 name: dak
-description: "大案牍库 AI Skill — 搜索与浏览。通过 CLI / TypeScript SDK 对 14,000+ feed 条目进行全文搜索、多维过滤和浏览。结构化分析请用 dak-summary skill。"
+description: |
+  Search and browse feed data from 大案牍库 (The Grand Archive): 14,000+ live news entries from 20+ sources, updated every 30 minutes. Supports full-text search and filtering by category, source, tag, and date range via the dak CLI / TypeScript SDK. For structured analysis, use the companion dak-summary skill.
+  Use when user asks to: search news, find articles, look up recent reports, browse feeds, dak search, dak feeds, find recent items.
+  Triggers: "search", "find articles", "dak search", "dak feeds", "look up", "browse", "find recent", "搜索新闻", "查找文章", "浏览 feed"
 ---
 
 # dak Skill — Search & Browse

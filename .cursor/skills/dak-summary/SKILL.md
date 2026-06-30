@@ -1,6 +1,9 @@
 ---
 name: dak-summary
-description: "大案牍库 AI Skill — 结构化分析。从海量 feed 数据中提炼每日总结与专题总结。核心三步：海量查询 → 关联分析 → 结果输出。"
+description: |
+  Structured analysis over feed data from 大案牍库 (The Grand Archive): produce daily digests and topic deep-dives via a three-step core — broad query, cross-source analysis, and structured output. Uses the companion dak skill for retrieval.
+  Use when user asks to: summarize today's news, analyze an event, write a topic summary, daily digest, topic deep-dive, trace a topic across time.
+  Triggers: "summarize", "daily digest", "analyze", "write topic summary", "topic deep-dive", "梳理话题", "每日总结", "专题总结", "梳理"
 ---
 
 # dak-summary Skill — Structured Analysis
