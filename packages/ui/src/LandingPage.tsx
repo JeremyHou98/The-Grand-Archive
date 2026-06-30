@@ -46,7 +46,7 @@ const CODE_TABS = [
     code: `$ npx skills add LittleLittleCloud/The-Grand-Archive
 
 ✓ Added skill: dak (Search & Browse)
-✓ Added skill: dak_summary (Structured Analysis)
+✓ Added skill: dak-summary (Structured Analysis)
 
 You: Search recent finance news about oil prices
 

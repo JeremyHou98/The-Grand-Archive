@@ -374,7 +374,7 @@ config/
 └── categories.yaml         分类元数据
 
 doc/                        architecture.drawio, REPO_LAYOUT
-skills/                     dak, dak_summary, dak_dev
+skills/                     dak, dak-summary, dak_dev
 ```
 
 ---

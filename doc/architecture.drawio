@@ -197,7 +197,7 @@
                 <mxCell id="sdk_skill_dak" value="大案牍库 (dak)&#xa;搜索 &amp; 访问 feed" style="rounded=1;whiteSpace=wrap;fillColor=#fff8e1;strokeColor=#f9a825;fontSize=10;" parent="sdk_boundary" vertex="1">
                     <mxGeometry x="15" y="483" width="130" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="sdk_skill_summary" value="大案牍术 (dak_summary)&#xa;海量查询 → 关联分析" style="rounded=1;whiteSpace=wrap;fillColor=#fff8e1;strokeColor=#f9a825;fontSize=10;" parent="sdk_boundary" vertex="1">
+                <mxCell id="sdk_skill_summary" value="大案牍术 (dak-summary)&#xa;海量查询 → 关联分析" style="rounded=1;whiteSpace=wrap;fillColor=#fff8e1;strokeColor=#f9a825;fontSize=10;" parent="sdk_boundary" vertex="1">
                     <mxGeometry x="160" y="483" width="135" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="sdk_agent" value="🤖 AI Agent (Claude Code)" style="ellipse;whiteSpace=wrap;fillColor=#ffe0b2;strokeColor=#e65100;fontStyle=1;fontSize=11;" parent="sdk_boundary" vertex="1">
